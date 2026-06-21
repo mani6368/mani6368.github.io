@@ -22,26 +22,54 @@ const hasCertifications = siteConfig.certifications && siteConfig.certifications
           <!-- Right: Cert Cards (shifted down further with lg:pt-32 to let the large title overflow safely) -->
           <div class="lg:col-span-8 lg:pt-32">
             <div class="space-y-8">
-              {siteConfig.certifications.map((cert) => (
-                <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-4 sm:p-5 md:p-6 hover:shadow-md transition-shadow duration-300">
-                  <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
-                    <div>
-                      <h3 class="text-lg sm:text-xl font-semibold text-gray-900">
-                        {cert.title}
-                      </h3>
-                      <p
-                        class="text-base sm:text-lg"
-                        style={`color: ${siteConfig.accentColor}`}
-                      >
-                        {cert.issuer}
-                      </p>
+              {siteConfig.certifications.map((cert) => {
+                const isClickable = !!cert.pdf;
+                const CardComponent = isClickable ? 'a' : 'div';
+                const cardProps = isClickable 
+                  ? { 
+                      href: cert.pdf, 
+                      target: "_blank", 
+                      rel: "noopener noreferrer", 
+                      class: "block bg-white rounded-lg shadow-sm border border-gray-100 p-4 sm:p-5 md:p-6 hover:shadow-md transition-shadow duration-300 cursor-pointer" 
+                    }
+                  : { 
+                      class: "bg-white rounded-lg shadow-sm border border-gray-100 p-4 sm:p-5 md:p-6 transition-shadow duration-300" 
+                    };
+
+                return (
+                  <CardComponent {...cardProps}>
+                    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between">
+                      <div>
+                        <h3 class="text-lg sm:text-xl font-semibold text-gray-900">
+                          {cert.title}
+                        </h3>
+                        <p
+                          class="text-base sm:text-lg"
+                          style={`color: ${siteConfig.accentColor}`}
+                        >
+                          {cert.issuer}
+                        </p>
+                        {isClickable && (
+                          <div class="mt-4">
+                            <span 
+                              class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold px-3 py-1.5 rounded-md border transition-all duration-200"
+                              style={`color: ${siteConfig.accentColor}; border-color: ${siteConfig.accentColor}25; background-color: ${siteConfig.accentColor}08`}
+                            >
+                              <span>View Certificate</span>
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                              </svg>
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                      <span class="text-xs sm:text-sm text-gray-500 mt-2 sm:mt-0 whitespace-nowrap shrink-0 sm:ml-4">
+                        {cert.date}
+                      </span>
                     </div>
-                    <span class="text-xs sm:text-sm text-gray-500 mt-2 sm:mt-0 whitespace-nowrap shrink-0 sm:ml-4">
-                      {cert.date}
-                    </span>
-                  </div>
-                </div>
-              ))}
+                  </CardComponent>
+                );
+              })}
             </div>
           </div>
         </div>

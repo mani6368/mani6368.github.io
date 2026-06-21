@@ -12,7 +12,7 @@ export const siteConfig = {
     phone: "+91 8838739844",
   },
   aboutMe:
-    "Final-year B.E. Electrical and Electronics Engineering student at Excel Engineering College with a strong passion for software development and AI integration. Built real-world projects including an open-source NVDA accessibility add-on for visually impaired users, an AI-powered report generation web app, and a stock inventory module deployed for SAIL Salem Steel Plant. Driven by curiosity and hands-on problem-solving to create impactful and practical tech solutions.",
+    "Final-year B.E. Electrical and Electronics Engineering student at Excel Engineering College with a strong passion for software development and AI integration. Built real-world projects including an open-source NVDA accessibility add-on for visually impaired users, an AI-powered report generation web app, and the Canteen Stock Inventory Module deployed for SAIL Salem Steel Plant. Driven by curiosity and hands-on problem-solving to create impactful and practical tech solutions.",
   skills: [
     "Python",
     "MySQL",
@@ -82,7 +82,7 @@ export const siteConfig = {
   ],
   education: [
     {
-      school: "Excel Engineering College, Komarapalayam (Anna University affiliated)",
+      school: "Excel Engineering College, Komarapalayam",
       degree: "B.E. in Electrical and Electronics Engineering",
       dateRange: "2023 – 2027",
       achievements: [
@@ -115,18 +115,21 @@ export const siteConfig = {
       issuer: "Vision-Aid NGO",
       date: "May 2026",
       icon: "🏆",
+      pdf: "/Certifications/Mr. Manikandan Dhanakodi Hackathon Certificate.pdf"
     },
     {
       title: "Programming in Java",
       issuer: "NPTEL",
       date: "October 2025",
       icon: "🎓",
+      pdf: "/Certifications/Java-NPTEl.pdf"
     },
     {
-      title: "Canteen Inventory Module Software Certification",
+      title: "Canteen Stock Inventory Module Software Certification",
       issuer: "SAIL Salem Steel Plant",
       date: "October 2025",
-      icon: "🏭",
+      icon: "🏭" ,
+      pdf: "/Certifications/Sail-cartificate.pdf"
     },
   ],
 };
